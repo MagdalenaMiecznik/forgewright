@@ -1,0 +1,28 @@
+1. The physics they care about: when a cutting tool gets dull or chipped, it
+**chatters** — it vibrates more than a healthy tool would for the same amount of
+cutting work. -> more vibration when broken (look at vibration sensors)
+
+2. Cutting work shows up as electrical power draw. So a worn tool looks
+like *high vibration relative to power*. A healthy tool's vibration scales
+predictably with its power draw. -> it impacts the power usage (look at power meter)
+
+3. **CNC machining cell.** works through sequence. Between jobs the machine sits
+**idle** -> identify the time breaks and focus on cutting sequences.
+
+4. **Power meter.** register the data once per sec. In between jobs the power usage is merginal 
+while harder material uses more power.
+
+5. **Vibration sensor.** reporting vibration amplitude in **g** (units of gravitational acceleration).
+**RMS** (overall amplitude) and **peak** (the largest spike). When idle,
+vibration is near zero; when cutting, it rises. It logs a few times per second. ->
+
+6. **MES / production log.** - the software that tracks production. 
+
+7. **The link between them.** Cutting a part takes mechanical work. The motor draws
+  electrical power to do that work, and the cutting makes the machine vibrate. So
+  during a job, power *and* vibration both go up together; during idle, both fall.
+  Heavier cuts raise both. A healthy tool's vibration tracks its power draw in a
+  predictable way; a worn tool vibrates more than its power draw would predict
+  (that extra vibration is the "chatter"). Note that a high-power job is not the
+  same as a worn-tool job — a big titanium cut is legitimately high-vibration
+  without any wear.
